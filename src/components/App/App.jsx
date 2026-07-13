@@ -1,18 +1,29 @@
-import css from "./App.module.css";
+import { lazy } from "react";
+import { Route, Routes } from "react-router-dom";
+import MainLayout from "../MainLayout/MainLayout";
+import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
+
+const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
+const MoviesPage = lazy(() => import("../../pages/MoviesPage/MoviesPage"));
+const MovieDetailsPage = lazy(() =>
+  import("../../pages/MovieDetailsPage/MovieDetailsPage")
+);
+const MovieCast = lazy(() => import("../MovieCast/MovieCast"));
+const MovieReviews = lazy(() => import("../MovieReviews/MovieReviews"));
 
 function App() {
-  const { app, appHeader, appTitle, appMain, appDescription } = css;
   return (
-    <div className={app}>
-      <header className={appHeader}>
-        <h1 className={appTitle}>React Homework</h1>
-      </header>
-      <main className={appMain}>
-        <p className={appDescription}>
-          Start React App!
-        </p>
-      </main>
-    </div>
+    <Routes>
+      <Route path="/" element={<MainLayout />}>
+        <Route index element={<HomePage />} />
+        <Route path="movies" element={<MoviesPage />} />
+        <Route path="movies/:movieId" element={<MovieDetailsPage />}>
+          <Route path="cast" element={<MovieCast />} />
+          <Route path="reviews" element={<MovieReviews />} />
+        </Route>
+      </Route>
+      <Route path="*" element={<NotFoundPage />} />
+    </Routes>
   );
 }
 

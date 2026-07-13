@@ -10,6 +10,10 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+
+# Local env files (keep your TMDB token out of git)
+.env
+.env.local
 *.local
 
 # Editor directories and files

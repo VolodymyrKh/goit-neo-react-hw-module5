@@ -1,18 +1,43 @@
-# React + Vite
+# goit-neo-react-hw-module5 — MovieSearch
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An app for searching movies by title with routing powered by **React Router**.
+Data is fetched from the [TMDB API](https://developer.themoviedb.org/).
 
-Currently, two official plugins are available:
+## Tech stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Vite + React 19
+- React Router
+- Axios
+- CSS Modules
+- `React.lazy` + `Suspense` (route-based code splitting)
 
-## React Compiler
+## Running locally
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Create a `.env` file in the project root (see `.env.example`) and add your
+   **TMDB API Read Access Token**:
+   ```
+   VITE_TMDB_TOKEN=tmdb_read_access_token
+   ```
+   Get the token at https://www.themoviedb.org/settings/api → the
+   **API Read Access Token** section.
+3. Start the dev server:
+   ```bash
+   npm run dev
+   ```
 
-Note: This will impact Vite dev & build performances.
+## Deploying to Vercel
 
-## Expanding the ESLint configuration
+In the Vercel project settings, add an environment variable
+`VITE_TMDB_TOKEN` with your token value. The `vercel.json` file is already
+configured for SPA routing (so page refreshes work on nested routes).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Scripts
+
+- `npm run dev` — local dev server
+- `npm run build` — production build
+- `npm run preview` — preview the production build
+- `npm run lint` — run ESLint
