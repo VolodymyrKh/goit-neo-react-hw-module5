@@ -1,0 +1,31 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.appHeader {
+  background-color: #2e2e2e;
+  padding: 16px 32px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.appTitle {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.appMain {
+  flex: 1;
+  padding: 40px 32px;
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.appDescription {
+  color: #555;
+  font-size: 16px;
+}
